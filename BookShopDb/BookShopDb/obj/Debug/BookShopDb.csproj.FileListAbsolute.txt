@@ -1,0 +1,10 @@
+D:\h644771\4szemeszter\adatb\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.csprojResolveAssemblyReference.cache
+D:\h644771\4szemeszter\adatb\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.Properties.Resources.resources
+D:\h644771\4szemeszter\adatb\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.Form1.resources
+D:\h644771\4szemeszter\adatb\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.csproj.GenerateResource.Cache
+D:\h644771\4szemeszter\adatb\beadando\BookShopDb\BookShopDb\bin\Debug\BookShopDb.exe.config
+D:\h644771\4szemeszter\adatb\beadando\BookShopDb\BookShopDb\bin\Debug\BookShopDb.exe
+D:\h644771\4szemeszter\adatb\beadando\BookShopDb\BookShopDb\bin\Debug\BookShopDb.pdb
+D:\h644771\4szemeszter\adatb\beadando\BookShopDb\BookShopDb\bin\Debug\Oracle.DataAccess.dll
+D:\h644771\4szemeszter\adatb\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.exe
+D:\h644771\4szemeszter\adatb\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.pdb
