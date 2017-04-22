@@ -26,3 +26,17 @@ D:\Egyetem\4.félév\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.
 D:\Egyetem\BookShopDb\BookShopDb\bin\Debug\BookShopDb.exe.config
 D:\Egyetem\BookShopDb\BookShopDb\obj\Debug\BookShopDb.exe
 D:\Egyetem\BookShopDb\BookShopDb\obj\Debug\BookShopDb.pdb
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\bin\Debug\BookShopDb.exe.config
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\bin\Debug\BookShopDb.exe
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\bin\Debug\BookShopDb.pdb
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.csprojResolveAssemblyReference.cache
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.Properties.Resources.resources
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.BookShopApp.resources
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.Login.resources
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.NewBook.resources
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.NewFilm.resources
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.NewMusic.resources
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.NewShop.resources
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.csproj.GenerateResource.Cache
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.exe
+C:\Users\h644771\Source\Repos\beadando\BookShopDb\BookShopDb\obj\Debug\BookShopDb.pdb

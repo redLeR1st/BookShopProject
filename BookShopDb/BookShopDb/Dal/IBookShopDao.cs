@@ -10,8 +10,12 @@ namespace BookShopDb.Dal
 {
 	interface IBookShopDao
 	{
-		OracleConnection GetConnection();
+		Felhasznalo OnlineFelhasznalo { get; set; }
 
+		OracleConnection GetConnection();
 		bool Login(Model.Login login);
+		bool NewBook(Konyv book);
+		Felhasznalo GetFelhasznaloFromUname(string uname);
+		IEnumerable<Konyv> GetKonyvek();
 	}
 }

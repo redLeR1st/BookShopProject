@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace BookShopDb.View
 {
-    public partial class NewBook : Form
+    partial class NewBook : Form
     {
         private BookShopApp bookShopApp;
 

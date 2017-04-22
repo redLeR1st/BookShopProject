@@ -1,4 +1,5 @@
-﻿using BookShopDb.View;
+﻿using BookShopDb.Controller;
+using BookShopDb.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,14 @@ namespace BookShopDb
 {
 	static class Program
 	{
+
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
 		static void Main()
 		{
+			
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new BookShopApp());

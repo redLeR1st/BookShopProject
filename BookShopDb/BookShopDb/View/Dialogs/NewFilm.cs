@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace BookShopDb.View.Dialogs
 {
-    public partial class NewFilm : Form
+    partial class NewFilm : Form
     {
         private BookShopApp bookShopApp;
         public NewFilm(BookShopApp bookShopApp)

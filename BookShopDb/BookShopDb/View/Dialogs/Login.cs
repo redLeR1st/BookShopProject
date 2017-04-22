@@ -13,17 +13,12 @@ using System.Windows.Forms;
 
 namespace BookShopDb
 {
-	public partial class Login : Form
+	partial class Login : Form
 	{
-		private BookShopController db_cont = new BookShopController();
+		
+        BookShopApp bookShopApp;
 
-		public Login()
-		{
-			InitializeComponent();
-		}
-
-        private BookShopApp bookShopApp;
-        public Login(BookShopApp bookShopApp)
+		public Login(BookShopApp bookShopApp)
         {
             InitializeComponent();
 
@@ -37,14 +32,24 @@ namespace BookShopDb
 				Username = usertextBox1.Text,
 				Pw = pwtextBox2.Text
 			};
-			if (db_cont.Login(login))
-				MessageBox.Show("HELYES");
+			if (bookShopApp.db_cont.Login(login))
+			{
+				if (bookShopApp.db_cont.GetOnlineFelhasznalo() != null)
+				{
+					bookShopApp.Text = "Üdvözöllek, " + bookShopApp.db_cont.GetOnlineFelhasznalo().k_nev;
+				}
+				this.Visible = false;
+			}
+				
 			else
 			{
-				MessageBox.Show("HELYTELEN");
-				MessageBox.Show(login.Username);
-				MessageBox.Show(login.Pw);
+				MessageBox.Show("Helytelen jelszó-pw páros!");
 			}
+		}
+
+		private void signUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+
 		}
 	}
 }

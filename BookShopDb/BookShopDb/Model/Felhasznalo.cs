@@ -9,7 +9,7 @@ namespace BookShopDb.Model
 	class Felhasznalo
 	{
 		public int u_id { get; set; }
-		public int torzsvasarlo { get; set; }
+		public bool torzsvasarlo { get; set; }
 		public int tel_szam { get; set; }
 		public string k_nev { get; set; }
 		public string v_nev { get; set; }

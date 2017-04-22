@@ -12,6 +12,13 @@ namespace BookShopDb.Controller
 	{
 		private IBookShopDao db_dao = new BookShopDaoImpl();
 
+		
+
+		public Felhasznalo GetOnlineFelhasznalo()
+		{
+			return db_dao.OnlineFelhasznalo;
+		}
+
 		public IBookShopDao BookShopDao
 		{
 			get { return db_dao; }
@@ -23,7 +30,15 @@ namespace BookShopDb.Controller
 			return db_dao.Login(login);
 		}
 		
+		public IEnumerable<Konyv> GetKonyvekFromCheapest()
+		{
+			return db_dao.GetKonyvek().OrderBy(o=>o.ar).ToList();
+		}
 
+		public IEnumerable<Konyv> GetKonyvekFromMostPopular()
+		{
+			return db_dao.GetKonyvek().OrderByDescending(o => o.eladott_db).ToList();
+		}
 
 	}
 }

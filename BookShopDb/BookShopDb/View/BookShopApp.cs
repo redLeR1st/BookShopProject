@@ -2,21 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using BookShopDb.Controller;
 
 namespace BookShopDb.View
 {
-    public partial class BookShopApp : Form
+    partial class BookShopApp : Form
     {
-        public BookShopApp()
-        {
-            InitializeComponent();
-        }
+		public BookShopController db_cont = new BookShopController();
 
-        private void bookToolStripMenuItem_Click(object sender, EventArgs e)
+		public BookShopApp()
+		{
+			InitializeComponent();
+		}
+
+		private void bookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (NewBook dialog = new NewBook(this))
             {
-                dialog.ShowDialog();
+                dialog.ShowDialog(this);
             }
         }
 
@@ -24,7 +27,7 @@ namespace BookShopDb.View
         {
             using (NewFilm dialog = new NewFilm(this))
             {
-                dialog.ShowDialog();
+                dialog.ShowDialog(this);
             }
         }
 
@@ -32,7 +35,7 @@ namespace BookShopDb.View
         {
             using (NewMusic dialog = new NewMusic(this))
             {
-                dialog.ShowDialog();
+                dialog.ShowDialog(this);
             }
         }
 
@@ -40,7 +43,7 @@ namespace BookShopDb.View
         {
             using (NewShop dialog = new NewShop(this))
             {
-                dialog.ShowDialog();
+                dialog.ShowDialog(this);
             }
         }
 
@@ -48,8 +51,22 @@ namespace BookShopDb.View
         {
             using (Login dialog = new Login(this))
             {
-                dialog.ShowDialog();
+                dialog.ShowDialog(this);
             }
         }
-    }
+
+		private void toplistToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			cheapBookdataGridView1.DataSource = null;
+			cheapBookdataGridView1.DataSource = db_cont.GetKonyvekFromCheapest();
+			cheapBookdataGridView1.Visible = true;
+		}
+
+		private void popularToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			cheapBookdataGridView1.DataSource = null;
+			cheapBookdataGridView1.DataSource = db_cont.GetKonyvekFromMostPopular();
+			cheapBookdataGridView1.Visible = true;
+		}
+	}
 }
