@@ -18,7 +18,7 @@ namespace BookShopDb.Controller
 			set { db_dao = value; }
 		}
 
-		public bool Login(Login login)
+		public bool Login(Model.Login login)
 		{
 			return db_dao.Login(login);
 		}

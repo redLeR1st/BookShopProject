@@ -25,7 +25,7 @@ namespace BookShopDb.Dal
 		}
 
 		#region login
-		public bool Login(Login login)
+		public bool Login(Model.Login login)
 		{
 			bool loginS = false;
 

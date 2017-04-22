@@ -12,6 +12,6 @@ namespace BookShopDb.Dal
 	{
 		OracleConnection GetConnection();
 
-		bool Login(Login login);
+		bool Login(Model.Login login);
 	}
 }
