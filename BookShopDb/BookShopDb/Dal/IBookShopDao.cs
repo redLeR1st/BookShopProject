@@ -14,8 +14,10 @@ namespace BookShopDb.Dal
 
 		OracleConnection GetConnection();
 		bool Login(Model.Login login);
-		bool NewBook(Konyv book);
+		bool NewBook(Tetel tetel, int oldalszam);
 		Felhasznalo GetFelhasznaloFromUname(string uname);
 		IEnumerable<Konyv> GetKonyvek();
+		string[] GetCategoria();
+		int GetCategoriaIdByName(string kat_nev);
 	}
 }

@@ -31,13 +31,13 @@ namespace BookShopDb.Dal
 
 		public Felhasznalo OnlineFelhasznalo { get; set; } = null;
 
-		public List<Konyv> Konyvek{ get;  set;} 
+		public List<Konyv> Konyvek { get; set; }
 
 		public OracleConnection GetConnection()
 		{
 			using (OracleConnection conn = new OracleConnection(db_connection))
 			{
-			
+
 				return conn;
 			}
 		}
@@ -51,7 +51,7 @@ namespace BookShopDb.Dal
 			using (OracleCommand cmd = conn.CreateCommand())
 			{
 				conn.Open();
-				
+
 				cmd.CommandText = "SELECT * FROM felhasznalo, " +
 					"login WHERE felhasznalo.u_id = login.u_id AND " +
 					 "login.username = :username";
@@ -73,32 +73,203 @@ namespace BookShopDb.Dal
 						vasarolt_db = reader.GetInt32(reader.GetOrdinal("vasarolt_db")),
 						admine = reader.GetInt32(reader.GetOrdinal("admine")) == 1 ? true : false,
 					};
-					
+
 					temp = temp2;
 				}
 
 			}
-				return temp;
+			return temp;
 		}
-		#endregion
 
-		#region newBook
-		public bool NewBook(Konyv book)
+		public string[] GetCategoria()
 		{
-			throw new NotImplementedException();
-			bool rvS = false;
+			int length = 0;
+
+			List<Kategoria> kategoriak = new List<Kategoria>();
 
 			using (OracleConnection conn = new OracleConnection(db_connection))
 			using (OracleCommand cmd = conn.CreateCommand())
 			{
-				cmd.CommandText = "INSERT INTO konyv ()";
+				conn.Open();
+
+				cmd.CommandText = "SELECT * FROM kategoria";
+
+				OracleDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					Kategoria temp = new Kategoria
+					{
+						kat_id = reader.GetInt32(reader.GetOrdinal("kat_id")),
+						nev = reader.GetString(reader.GetOrdinal("nev"))
+					};
+					kategoriak.Add(temp);
+				}
+				length = kategoriak.Count();
+
+			}
+			int i = 0;
+			Kategoria[] aarray = new Kategoria[length];
+			string[] nev = new string[length];
+			foreach (Kategoria temp in kategoriak)
+			{
+				aarray[i] = temp;
+				nev[i] = temp.nev;
+				i++;
+			}
 
 
+			return nev;
 
+		}
+
+		public int GetCategoriaIdByName(string kat_nev)
+		{
+			int id = -1;
+
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+			{
+				conn.Open();
+
+				cmd.CommandText = "SELECT * FROM kategoria " +
+					"WHERE nev = :nev";
+
+				cmd.Parameters.Add("nev", kat_nev);
+
+				OracleDataReader reader = cmd.ExecuteReader();
+
+				if (reader.Read())
+				{
+					id = reader.GetInt32(reader.GetOrdinal("kat_id"));
+				}
+
+			}
+
+			return id;
+		}
+
+
+		private int? AddNewAdatlap()
+		{
+			int? NewAdtalapId = null;
+
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+			{
+				conn.Open();
+
+				cmd.CommandText = "INSERT INTO adatlap (KOMMENT, ERTEKELES, LEIRAS) VALUES('DEMO-ertekeles', 4, 'DEMO-leiras')";
+
+				int rowAff = cmd.ExecuteNonQuery();
+
+				if (rowAff == 1)
+					NewAdtalapId = GetNewAdatlapId();
+				
+			}
+
+			return NewAdtalapId;
+		}
+
+		private int? GetNewAdatlapId()
+		{
+			int? newid = null;
+
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+			{
+				conn.Open();
+
+				cmd.CommandText = "SELECT * FROM adatlap ORDER BY ad_id";
+
+				OracleDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					newid = reader.GetInt32(reader.GetOrdinal("ad_id"));
+				}
+				
+			}
+			return newid;
+		}
+		private bool InsertOldalszam(int oldalszam)
+		{
+			bool rvS = false;
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+
+			{
+				conn.Open();
+				cmd.CommandText = "INSERT INTO konyv (t_id, oldalszam) VALUES(:t_id, :oldalszam)";
+				cmd.Parameters.Add("t_id", GetNewTetelId());
+				cmd.Parameters.Add("oldalszam", oldalszam);
+
+				rvS = cmd.ExecuteNonQuery() == 1 ? true : false;
+ 
 			}
 
 			return rvS;
 		}
+
+
+		private int GetNewTetelId()
+		{
+			int newid = -1;
+
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+			{
+				conn.Open();
+
+				cmd.CommandText = "SELECT * FROM tetel ORDER BY t_id";
+
+				OracleDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					newid = reader.GetInt32(reader.GetOrdinal("t_id"));
+				}
+
+			}
+			return newid;
+
+		}
+
+		#endregion
+
+		#region newBook
+		public bool NewBook(Tetel tetel, int oldalszam)
+		{
+			//throw new NotImplementedException();
+			bool rvS = false;
+
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+			
+			{
+				conn.Open();
+				cmd.CommandText = "INSERT INTO tetel (ar, cim, mufaj, eladott_db, szerzo, ad_id, ki_id, kiadasi_datum, kat_id) " +
+					"VALUES(:ar, :cim, :mufaj, :eladott_db, :szerzo, :ad_id, :ki_id, :kiadasi_datum, :kat_id)";
+
+				cmd.Parameters.Add("ar", tetel.ar);
+				cmd.Parameters.Add("cim", tetel.cim);
+				cmd.Parameters.Add("mufaj", tetel.mufaj);
+				cmd.Parameters.Add("eladott_db", tetel.eladott_db);
+				cmd.Parameters.Add("szerzo", tetel.szerzo);
+				cmd.Parameters.Add("ad_id", AddNewAdatlap());
+				cmd.Parameters.Add("ki_id", 4);
+				cmd.Parameters.Add("kiadasi_datum", tetel.kiadasi_datum);
+				cmd.Parameters.Add("kat_id", tetel.kat_id);
+
+				rvS = cmd.ExecuteNonQuery()==1?true:false;
+
+				if (rvS)
+					InsertOldalszam(oldalszam);
+			}
+
+			return rvS;
+		}
+
 		#endregion
 
 		#region login
@@ -170,7 +341,6 @@ namespace BookShopDb.Dal
 			return Konyvek;
 		}
 		#endregion
-
 
 	}
 }

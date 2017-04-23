@@ -17,10 +17,16 @@ namespace BookShopDb.View
 
 		private void bookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (NewBook dialog = new NewBook(this))
-            {
-                dialog.ShowDialog(this);
-            }
+			if (db_cont.BookShopDao.OnlineFelhasznalo != null && db_cont.BookShopDao.OnlineFelhasznalo.admine)
+			{
+				using (NewBook dialog = new NewBook(this))
+				{
+					dialog.ShowDialog(this);
+				}
+			}
+			else
+				MessageBox.Show("Nem vagy bejelentkezve vagy nincs jogosultságod úgy könyv felvételére :/");
+			
         }
 
         private void filmToolStripMenuItem_Click(object sender, EventArgs e)

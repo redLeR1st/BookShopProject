@@ -12,7 +12,6 @@ namespace BookShopDb.Controller
 	{
 		private IBookShopDao db_dao = new BookShopDaoImpl();
 
-		
 
 		public Felhasznalo GetOnlineFelhasznalo()
 		{
@@ -38,6 +37,20 @@ namespace BookShopDb.Controller
 		public IEnumerable<Konyv> GetKonyvekFromMostPopular()
 		{
 			return db_dao.GetKonyvek().OrderByDescending(o => o.eladott_db).ToList();
+		}
+		public string[] GetCategoria()
+		{
+			return db_dao.GetCategoria();
+		}
+
+		public bool NewBook(Tetel tetel, int oldalszam)
+		{
+			return db_dao.NewBook(tetel, oldalszam);
+		}
+
+		public int GetCategoriaIdByName(string kat_nev)
+		{
+			return db_dao.GetCategoriaIdByName(kat_nev);
 		}
 
 	}
