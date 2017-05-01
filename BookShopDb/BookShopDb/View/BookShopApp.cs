@@ -74,5 +74,13 @@ namespace BookShopDb.View
 			cheapBookdataGridView1.DataSource = db_cont.GetKonyvekFromMostPopular();
 			cheapBookdataGridView1.Visible = true;
 		}
-	}
+
+        private void listFilmsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ListFilms dialog = new ListFilms())
+            {
+                dialog.ShowDialog(this);
+            }
+        }
+    }
 }
