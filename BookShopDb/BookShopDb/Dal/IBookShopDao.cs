@@ -19,5 +19,11 @@ namespace BookShopDb.Dal
 		IEnumerable<Konyv> GetKonyvek();
 		string[] GetCategoria();
 		int GetCategoriaIdByName(string kat_nev);
+		IEnumerable<Film> GetFilmek();
+		bool NewFilm(Tetel tetel, int hossz);
+		IEnumerable<Zene> GetZene();
+		bool NewZene(Tetel tetel, int hossz);
+		Adatlap GetAdatlapById(Tetel tetel);
+
 	}
 }

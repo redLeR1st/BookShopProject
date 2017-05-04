@@ -41,5 +41,10 @@ namespace BookShopDb.View
 			else
 				MessageBox.Show("NEM SIKERÜLT");
 		}
+
+		private void NewBook_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

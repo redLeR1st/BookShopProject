@@ -53,5 +53,26 @@ namespace BookShopDb.Controller
 			return db_dao.GetCategoriaIdByName(kat_nev);
 		}
 
+		public IEnumerable<Film> GetFilmek()
+		{
+			return db_dao.GetFilmek();
+		}
+		public bool NewFilm(Tetel tetel, int hossz)
+		{
+			return db_dao.NewFilm(tetel, hossz);
+		}
+
+		public IEnumerable<Zene> GetZenek()
+		{
+			return db_dao.GetZene();
+		}
+		public bool NewZene(Tetel tetel, int hossz)
+		{
+			return db_dao.NewZene(tetel, hossz);
+		}
+		public Adatlap GetAdatlapById(Tetel tetel)
+		{
+			return db_dao.GetAdatlapById(tetel);
+		}
 	}
 }

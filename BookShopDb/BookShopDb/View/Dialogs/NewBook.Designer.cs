@@ -204,6 +204,7 @@
 			this.Controls.Add(this.titleBookLabel);
 			this.Name = "NewBook";
 			this.Text = "New Book";
+			this.Load += new System.EventHandler(this.NewBook_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pageNumbernumericUpDown1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

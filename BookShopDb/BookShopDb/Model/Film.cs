@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BookShopDb.Model
 {
-	class Film
+	class Film : Tetel
 	{
-		public int t_id { get; set; }
 		public int hossz { get; set; }
 
 	}

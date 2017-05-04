@@ -25,14 +25,16 @@ namespace BookShopDb.Dal
 			}
 
 		*/
+		#region Propertyk
 		private static readonly string db_connection = "Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 4000)))" +
-			"(CONNECT_DATA = (SERVER = DEDICATED)(SID = kabinet))); User Id = hsazon;" +
-			"Password = jelsz;";
+			"(CONNECT_DATA = (SERVER = DEDICATED)(SID = kabinet))); User Id = h644771;" +
+			"Password = root;";
 
 		public Felhasznalo OnlineFelhasznalo { get; set; } = null;
 
 		public List<Konyv> Konyvek { get; set; }
-
+		public List<Film> Filmek { get; set; }
+		public List<Zene> Zenek { get; set; }
 		public OracleConnection GetConnection()
 		{
 			using (OracleConnection conn = new OracleConnection(db_connection))
@@ -41,6 +43,7 @@ namespace BookShopDb.Dal
 				return conn;
 			}
 		}
+		#endregion
 
 		#region segedFg
 		public Felhasznalo GetFelhasznaloFromUname(string uname)
@@ -211,6 +214,43 @@ namespace BookShopDb.Dal
 			return rvS;
 		}
 
+		private bool InsertHossz(int hossz)
+		{
+			bool rvS = false;
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+
+			{
+				conn.Open();
+				cmd.CommandText = "INSERT INTO film (t_id, hossz) VALUES(:t_id, :hossz)";
+				cmd.Parameters.Add("t_id", GetNewTetelId());
+				cmd.Parameters.Add("hossz", hossz);
+
+				rvS = cmd.ExecuteNonQuery() == 1 ? true : false;
+
+			}
+
+			return rvS;
+		}
+
+		private bool InsertZeneHossz(int hossz)
+		{
+			bool rvS = false;
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+
+			{
+				conn.Open();
+				cmd.CommandText = "INSERT INTO zene (t_id, hossz) VALUES(:t_id, :hossz)";
+				cmd.Parameters.Add("t_id", GetNewTetelId());
+				cmd.Parameters.Add("hossz", hossz);
+
+				rvS = cmd.ExecuteNonQuery() == 1 ? true : false;
+
+			}
+
+			return rvS;
+		}
 
 		private int GetNewTetelId()
 		{
@@ -237,10 +277,10 @@ namespace BookShopDb.Dal
 
 		#endregion
 
-		#region newBook
+		#region newKonyvek
 		public bool NewBook(Tetel tetel, int oldalszam)
 		{
-			//throw new NotImplementedException();
+
 			bool rvS = false;
 
 			using (OracleConnection conn = new OracleConnection(db_connection))
@@ -264,43 +304,14 @@ namespace BookShopDb.Dal
 				rvS = cmd.ExecuteNonQuery()==1?true:false;
 
 				if (rvS)
-					InsertOldalszam(oldalszam);
+					if (!InsertOldalszam(oldalszam))
+						rvS = false;
 			}
 
 			return rvS;
 		}
 
         #endregion
-
-        #region login
-        public bool Login(Model.Login login)
-		{
-			bool loginS = false;
-
-			using (OracleConnection conn = new OracleConnection(db_connection))
-			using (OracleCommand cmd = conn.CreateCommand())
-			{
-				conn.Open();
-
-				cmd.CommandText = "SELECT * FROM login" +
-					" WHERE username = :username AND pw = :pw";
-				cmd.Parameters.Add("username", login.Username);
-				cmd.Parameters.Add("pw", login.Pw);
-
-				int rowCount = 0;
-				OracleDataReader reader = cmd.ExecuteReader();
-
-				while (reader.Read())
-					rowCount++;
-				if (rowCount == 1)
-				{
-					loginS = true;
-					OnlineFelhasznalo = GetFelhasznaloFromUname(login.Username);
-				}
-			}
-				return loginS;
-		}
-		#endregion
 
 		#region getKonyvek
 		public IEnumerable<Konyv> GetKonyvek()
@@ -339,6 +350,215 @@ namespace BookShopDb.Dal
 			}
 
 			return Konyvek;
+		}
+		#endregion
+
+		#region newFilemek
+		public bool NewFilm(Tetel tetel, int hossz)
+		{
+			bool rvS = false;
+
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+
+			{
+				conn.Open();
+				cmd.CommandText = "INSERT INTO tetel (ar, cim, mufaj, eladott_db, szerzo, ad_id, ki_id, kiadasi_datum, kat_id) " +
+					"VALUES(:ar, :cim, :mufaj, :eladott_db, :szerzo, :ad_id, :ki_id, :kiadasi_datum, :kat_id)";
+
+				cmd.Parameters.Add("ar", tetel.ar);
+				cmd.Parameters.Add("cim", tetel.cim);
+				cmd.Parameters.Add("mufaj", tetel.mufaj);
+				cmd.Parameters.Add("eladott_db", tetel.eladott_db);
+				cmd.Parameters.Add("szerzo", tetel.szerzo);
+				cmd.Parameters.Add("ad_id", AddNewAdatlap());
+				cmd.Parameters.Add("ki_id", 4);
+				cmd.Parameters.Add("kiadasi_datum", tetel.kiadasi_datum);
+				cmd.Parameters.Add("kat_id", tetel.kat_id);
+
+				rvS = cmd.ExecuteNonQuery() == 1 ? true : false;
+
+				if (rvS)
+					if (!InsertHossz(hossz))
+						rvS = false;
+			}
+
+			return rvS;
+		}
+		#endregion
+
+		#region getFilmek
+		public IEnumerable<Film> GetFilmek()
+		{
+			Filmek = new List<Film>();
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+			{
+				conn.Open();
+
+				cmd.CommandText = "SELECT * FROM tetel,film WHERE tetel.t_id = film.t_id";
+
+				OracleDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					Film temp = new Film
+					{
+						t_id = reader.GetInt32(reader.GetOrdinal("t_id")),
+						ar = reader.GetInt32(reader.GetOrdinal("ar")),
+						cim = reader.GetString(reader.GetOrdinal("cim")),
+						mufaj = reader.GetString(reader.GetOrdinal("mufaj")),
+						eladott_db = reader.GetInt32(reader.GetOrdinal("eladott_db")),
+						szerzo = reader.GetString(reader.GetOrdinal("szerzo")),
+						ad_id = reader.GetInt32(reader.GetOrdinal("ad_id")),
+						ki_id = reader.GetInt32(reader.GetOrdinal("ki_id")),
+						kat_id = reader.GetInt32(reader.GetOrdinal("kat_id")),
+						kiadasi_datum = DateTime.ParseExact(reader.GetDateTime(reader.GetOrdinal("kiadasi_datum")).ToString("yyyy-MM-dd"), "yyyy-MM-dd", CultureInfo.InvariantCulture),
+						hossz = reader.GetInt32(reader.GetOrdinal("hossz"))
+					};
+
+					Filmek.Add(temp);
+
+				}
+
+			}
+
+			return Filmek;
+		}
+		#endregion
+
+		#region newZenek
+		public bool NewZene(Tetel tetel, int hossz)
+		{
+			bool rvS = false;
+
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+
+			{
+				conn.Open();
+				cmd.CommandText = "INSERT INTO tetel (ar, cim, mufaj, eladott_db, szerzo, ad_id, ki_id, kiadasi_datum, kat_id) " +
+					"VALUES(:ar, :cim, :mufaj, :eladott_db, :szerzo, :ad_id, :ki_id, :kiadasi_datum, :kat_id)";
+
+				cmd.Parameters.Add("ar", tetel.ar);
+				cmd.Parameters.Add("cim", tetel.cim);
+				cmd.Parameters.Add("mufaj", tetel.mufaj);
+				cmd.Parameters.Add("eladott_db", tetel.eladott_db);
+				cmd.Parameters.Add("szerzo", tetel.szerzo);
+				cmd.Parameters.Add("ad_id", AddNewAdatlap());
+				cmd.Parameters.Add("ki_id", 4);
+				cmd.Parameters.Add("kiadasi_datum", tetel.kiadasi_datum);
+				cmd.Parameters.Add("kat_id", tetel.kat_id);
+
+				rvS = cmd.ExecuteNonQuery() == 1 ? true : false;
+
+				if (rvS)
+					if (!InsertZeneHossz(hossz))
+						rvS = false;
+			}
+
+			return rvS;
+		}
+		#endregion
+
+		#region getZenek
+		public IEnumerable<Zene> GetZene()
+		{
+			Zenek = new List<Zene>();
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+			{
+				conn.Open();
+
+				cmd.CommandText = "SELECT * FROM tetel,zene WHERE tetel.t_id = zene.t_id";
+
+				OracleDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					Zene temp = new Zene
+					{
+						t_id = reader.GetInt32(reader.GetOrdinal("t_id")),
+						ar = reader.GetInt32(reader.GetOrdinal("ar")),
+						cim = reader.GetString(reader.GetOrdinal("cim")),
+						mufaj = reader.GetString(reader.GetOrdinal("mufaj")),
+						eladott_db = reader.GetInt32(reader.GetOrdinal("eladott_db")),
+						szerzo = reader.GetString(reader.GetOrdinal("szerzo")),
+						ad_id = reader.GetInt32(reader.GetOrdinal("ad_id")),
+						ki_id = reader.GetInt32(reader.GetOrdinal("ki_id")),
+						kat_id = reader.GetInt32(reader.GetOrdinal("kat_id")),
+						kiadasi_datum = DateTime.ParseExact(reader.GetDateTime(reader.GetOrdinal("kiadasi_datum")).ToString("yyyy-MM-dd"), "yyyy-MM-dd", CultureInfo.InvariantCulture),
+						hossz = reader.GetInt32(reader.GetOrdinal("hossz"))
+					};
+
+					Zenek.Add(temp);
+
+				}
+
+			}
+
+			return Zenek;
+		}
+		#endregion
+
+		#region getAdatlap
+		public Adatlap GetAdatlapById(Tetel tetel)
+		{
+			Adatlap adatlap = null;
+
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+			{
+				conn.Open();
+
+				cmd.CommandText = "SELECT * FROM adatlap WHERE ad_id = :ad_id";
+				cmd.Parameters.Add("ad_id", tetel.ad_id);
+
+				OracleDataReader reader = cmd.ExecuteReader();
+
+				while(reader.Read())
+				{
+					Adatlap temp = new Adatlap
+					{
+						ad_id = reader.GetInt32(reader.GetOrdinal("ad_id")),
+						komment = reader.GetString(reader.GetOrdinal("komment")),
+						ertekels = reader.GetInt32(reader.GetOrdinal("ertekeles")),
+						leiras = reader.GetString(reader.GetOrdinal("leiras"))
+					};
+					adatlap = temp;
+				}
+			}
+			return adatlap;
+		}
+		#endregion
+
+		#region login
+		public bool Login(Model.Login login)
+		{
+			bool loginS = false;
+
+			using (OracleConnection conn = new OracleConnection(db_connection))
+			using (OracleCommand cmd = conn.CreateCommand())
+			{
+				conn.Open();
+
+				cmd.CommandText = "SELECT * FROM login" +
+					" WHERE username = :username AND pw = :pw";
+				cmd.Parameters.Add("username", login.Username);
+				cmd.Parameters.Add("pw", login.Pw);
+
+				int rowCount = 0;
+				OracleDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+					rowCount++;
+				if (rowCount == 1)
+				{
+					loginS = true;
+					OnlineFelhasznalo = GetFelhasznaloFromUname(login.Username);
+				}
+			}
+			return loginS;
 		}
 		#endregion
 

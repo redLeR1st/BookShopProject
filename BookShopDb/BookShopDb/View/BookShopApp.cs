@@ -3,16 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using BookShopDb.Controller;
+using BookShopDb.Model;
 
 namespace BookShopDb.View
 {
     partial class BookShopApp : Form
     {
 		public BookShopController db_cont = new BookShopController();
+		string listazott_elemek = null;
 
 		public BookShopApp()
 		{
 			InitializeComponent();
+			UniversaldataGridView1.ReadOnly = true;
 		}
 
 		private void bookToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,19 +34,30 @@ namespace BookShopDb.View
 
         private void filmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (NewFilm dialog = new NewFilm(this))
-            {
-                dialog.ShowDialog(this);
-            }
-        }
+			if (db_cont.BookShopDao.OnlineFelhasznalo != null && db_cont.BookShopDao.OnlineFelhasznalo.admine)
+			{
+				using (NewFilm dialog = new NewFilm(this))
+				{
+					dialog.ShowDialog(this);
+				}
+			}
+			else
+				MessageBox.Show("Nem vagy bejelentkezve vagy nincs jogosultságod úgy könyv felvételére :/");
 
-        private void musicToolStripMenuItem_Click(object sender, EventArgs e)
+		}
+
+		private void musicToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (NewMusic dialog = new NewMusic(this))
-            {
-                dialog.ShowDialog(this);
-            }
-        }
+			if (db_cont.BookShopDao.OnlineFelhasznalo != null && db_cont.BookShopDao.OnlineFelhasznalo.admine)
+			{
+				using (NewMusic dialog = new NewMusic(this))
+				{
+					dialog.ShowDialog(this);
+				}
+			}
+			else
+				MessageBox.Show("Nem vagy bejelentkezve vagy nincs jogosultságod úgy könyv felvételére :/");
+		}
 
         private void newShopToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -63,24 +77,78 @@ namespace BookShopDb.View
 
 		private void toplistToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			cheapBookdataGridView1.DataSource = null;
-			cheapBookdataGridView1.DataSource = db_cont.GetKonyvekFromCheapest();
-			cheapBookdataGridView1.Visible = true;
+			listazott_elemek = "konyv";
+			UniversaldataGridView1.DataSource = null;
+			UniversaldataGridView1.DataSource = db_cont.GetKonyvekFromCheapest();
+			UniversaldataGridView1.Visible = true;
 		}
 
 		private void popularToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			cheapBookdataGridView1.DataSource = null;
-			cheapBookdataGridView1.DataSource = db_cont.GetKonyvekFromMostPopular();
-			cheapBookdataGridView1.Visible = true;
+			listazott_elemek = "konyv";
+			UniversaldataGridView1.DataSource = null;
+			UniversaldataGridView1.DataSource = db_cont.GetKonyvekFromMostPopular();
+			UniversaldataGridView1.Visible = true;
 		}
 
         private void listFilmsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (ListFilms dialog = new ListFilms())
-            {
-                dialog.ShowDialog(this);
-            }
-        }
-    }
+			listazott_elemek = "film";
+			UniversaldataGridView1.DataSource = null;
+			UniversaldataGridView1.DataSource = db_cont.GetFilmek();
+			UniversaldataGridView1.Visible = true;
+		}
+
+		private void listMusicsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			listazott_elemek = "zene";
+			UniversaldataGridView1.DataSource = null;
+			UniversaldataGridView1.DataSource = db_cont.GetZenek();
+			UniversaldataGridView1.Visible = true;
+		}
+
+		private void newToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void UniversaldataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+			/*Tetel temp = (Konyv)UniversaldataGridView1.CurrentRow.DataBoundItem;
+			MessageBox.Show(temp.t_id.ToString());
+
+			*/
+			if (listazott_elemek.Equals("konyv"))
+			{
+				Konyv temp = null;
+				temp = (Konyv)UniversaldataGridView1.CurrentRow.DataBoundItem;
+				if (temp != null)
+					new BuyTetel(this, temp);
+
+
+			}
+			else if (listazott_elemek.Equals("film"))
+			{
+				Film temp = null;
+				temp = (Film)UniversaldataGridView1.CurrentRow.DataBoundItem;
+				if (temp != null)
+					new BuyTetel(this, temp);
+
+			}
+			else if (listazott_elemek.Equals("zene"))
+			{
+				Zene temp = null;
+				temp = (Zene)UniversaldataGridView1.CurrentRow.DataBoundItem;
+				if (temp != null)
+					new BuyTetel(this, temp);
+
+
+			}
+			else
+				MessageBox.Show("Valami nagyon nagy gebasz van");
+				
+
+		}
+	}
 }

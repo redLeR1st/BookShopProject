@@ -9,7 +9,7 @@ namespace BookShopDb.Model
 	class Adatlap
 	{
 		public int ad_id { get; set; }
-		public string kommnet { get; set; }
+		public string komment { get; set; }
 		public int ertekels { get; set; }
 		public string leiras { get; set; }
 
