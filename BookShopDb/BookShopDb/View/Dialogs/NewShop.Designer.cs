@@ -41,18 +41,18 @@
             this.shopNameLabel.AutoSize = true;
             this.shopNameLabel.Location = new System.Drawing.Point(22, 23);
             this.shopNameLabel.Name = "shopNameLabel";
-            this.shopNameLabel.Size = new System.Drawing.Size(66, 13);
+            this.shopNameLabel.Size = new System.Drawing.Size(64, 13);
             this.shopNameLabel.TabIndex = 0;
-            this.shopNameLabel.Text = "Shop Name:";
+            this.shopNameLabel.Text = "Áruház név:";
             // 
             // addressShopLabel
             // 
             this.addressShopLabel.AutoSize = true;
             this.addressShopLabel.Location = new System.Drawing.Point(22, 50);
             this.addressShopLabel.Name = "addressShopLabel";
-            this.addressShopLabel.Size = new System.Drawing.Size(48, 13);
+            this.addressShopLabel.Size = new System.Drawing.Size(29, 13);
             this.addressShopLabel.TabIndex = 1;
-            this.addressShopLabel.Text = "Address:";
+            this.addressShopLabel.Text = "Cím:";
             // 
             // cancelShopButton
             // 
@@ -60,7 +60,7 @@
             this.cancelShopButton.Name = "cancelShopButton";
             this.cancelShopButton.Size = new System.Drawing.Size(75, 23);
             this.cancelShopButton.TabIndex = 52;
-            this.cancelShopButton.Text = "&Cancel";
+            this.cancelShopButton.Text = "&Mégse";
             this.cancelShopButton.UseVisualStyleBackColor = true;
             this.cancelShopButton.Click += new System.EventHandler(this.cancelShopButton_Click);
             // 
@@ -70,8 +70,9 @@
             this.addShopButton.Name = "addShopButton";
             this.addShopButton.Size = new System.Drawing.Size(75, 23);
             this.addShopButton.TabIndex = 51;
-            this.addShopButton.Text = "&Add";
+            this.addShopButton.Text = "&Hozzáadás";
             this.addShopButton.UseVisualStyleBackColor = true;
+            this.addShopButton.Click += new System.EventHandler(this.addShopButton_Click);
             // 
             // addressShopTextBox
             // 

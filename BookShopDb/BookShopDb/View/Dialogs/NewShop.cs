@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookShopDb.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,23 @@ namespace BookShopDb.View.Dialogs
         private void cancelShopButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void addShopButton_Click(object sender, EventArgs e)
+        {
+            Aruhaz temp = new Aruhaz
+            {
+                nev = shopNameTextBox.Text,
+                cim = addressShopTextBox.Text,
+            };
+            if (bookShopApp.db_cont.NewShop(temp))
+            {
+                MessageBox.Show("Sikerült az áruház hozzáadása");
+            }
+            else
+            {
+                MessageBox.Show("Nem sikerült az áruház hozzáadása");
+            }
         }
     }
 }

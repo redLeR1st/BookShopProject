@@ -42,9 +42,9 @@ namespace BookShopDb.View.Dialogs
 				eladott_db = 0,
 			};
 			if (bookShopApp.db_cont.NewZene(temp, Convert.ToInt32(lengthnumericUpDown1.Value)))
-				MessageBox.Show("SIKERÜLT");
+				MessageBox.Show("Sikerült a zeneszám hozzáadása");
 			else
-				MessageBox.Show("NEM SIKERÜLT");
+				MessageBox.Show("Nem sikerült a zeneszám hozzáadása");
 		}
 	
 	}

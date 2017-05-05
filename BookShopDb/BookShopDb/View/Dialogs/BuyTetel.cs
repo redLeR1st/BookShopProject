@@ -1,4 +1,6 @@
-﻿using BookShopDb.Model;
+﻿using BookShopDb;
+using BookShopDb.Model;
+using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,13 +14,12 @@ using System.Windows.Forms;
 namespace BookShopDb.View.Dialogs
 {
 	partial class BuyTetel : Form
-	{
-
-		Konyv konyv;
+    {
+        Konyv konyv;
 		Film film;
 		Zene zene;
 
-		private BookShopApp bookShopApp;
+        private BookShopApp bookShopApp;
 		public BuyTetel(BookShopApp bookShopApp, Tetel tetel)
 		{
 			InitializeComponent();
@@ -29,7 +30,7 @@ namespace BookShopDb.View.Dialogs
 				konyv = (Konyv)tetel;
 				MessageBox.Show("EZ AZ ID: " + konyv.t_id.ToString());
 
-				label1.Text = "Cím:";
+                label1.Text = "Cím:";
 				label2.Text = "Szerző:";
 				label3.Text = "Ár:";
 				label4.Text = "Értékelés:";
@@ -74,7 +75,20 @@ namespace BookShopDb.View.Dialogs
 
 		private void Buybutton1_Click(object sender, EventArgs e)
 		{
-			throw new NotImplementedException();
-		}
+            Vasarol temp = new Vasarol
+            {
+                u_id = bookShopApp.db_cont.GetOnlineFelhasznalo().u_id,
+                t_id = konyv.t_id,
+            };
+            if (bookShopApp.db_cont.Megveszem(temp))
+            {
+                MessageBox.Show("Sikerült a vásárlás");
+                //vásárolt db, eladott db?
+            }
+            else
+            {
+                MessageBox.Show("Nem sikerült a vásárlás");
+            }
+        }
 	}
 }

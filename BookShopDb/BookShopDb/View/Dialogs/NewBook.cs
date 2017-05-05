@@ -37,9 +37,9 @@ namespace BookShopDb.View
 				eladott_db = 0,
 			};
 			if (bookShopApp.db_cont.NewBook(temp, Convert.ToInt32(pageNumbernumericUpDown1.Value)))
-				MessageBox.Show("SIKERÜLT");
+				MessageBox.Show("Sikerült a könyv hozzáadása");
 			else
-				MessageBox.Show("NEM SIKERÜLT");
+				MessageBox.Show("Nem sikerült a könyv hozzáadása");
 		}
 
 		private void NewBook_Load(object sender, EventArgs e)

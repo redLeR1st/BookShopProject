@@ -24,6 +24,8 @@ namespace BookShopDb.Dal
 		IEnumerable<Zene> GetZene();
 		bool NewZene(Tetel tetel, int hossz);
 		Adatlap GetAdatlapById(Tetel tetel);
+        bool NewShop(Aruhaz aruhaz);
 
-	}
+        bool Megveszem(Vasarol vasarol);
+    }
 }

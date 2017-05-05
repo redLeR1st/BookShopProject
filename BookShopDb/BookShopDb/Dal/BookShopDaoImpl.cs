@@ -28,7 +28,7 @@ namespace BookShopDb.Dal
 		#region Propertyk
 		private static readonly string db_connection = "Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 4000)))" +
 			"(CONNECT_DATA = (SERVER = DEDICATED)(SID = kabinet))); User Id = h667769;" +
-			"Password = root;";
+			"Password = jelszo";
 
 		public Felhasznalo OnlineFelhasznalo { get; set; } = null;
 
@@ -560,7 +560,55 @@ namespace BookShopDb.Dal
 			}
 			return loginS;
 		}
-		#endregion
+        #endregion
 
-	}
+        #region newAruhazak
+        public bool NewShop(Aruhaz aruhaz)
+        {
+
+            bool rvS = false;
+
+            using (OracleConnection conn = new OracleConnection(db_connection))
+            using (OracleCommand cmd = conn.CreateCommand())
+            {
+                conn.Open();
+                cmd.CommandText = "INSERT INTO aruhaz (nev, cim) " +
+                    "VALUES(:nev, :cim)";
+
+                cmd.Parameters.Add("nev", aruhaz.nev);
+                cmd.Parameters.Add("cim", aruhaz.cim);
+
+                rvS = cmd.ExecuteNonQuery() == 1 ? true : false;
+            }
+
+            return rvS;
+        }
+
+        #endregion
+
+        #region Megveszem
+        public bool Megveszem(Vasarol vasarol)
+        {
+
+            bool rvS = false;
+
+            using (OracleConnection conn = new OracleConnection(db_connection))
+            using (OracleCommand cmd = conn.CreateCommand())
+            {
+                conn.Open();
+                cmd.CommandText = "INSERT INTO vasarol (v_id, u_id, t_id) " +
+                    "VALUES(:v_id, :u_id, :t_id)";
+
+                cmd.Parameters.Add("v_id", vasarol.v_id);
+                cmd.Parameters.Add("u_id", vasarol.u_id);
+                cmd.Parameters.Add("t_id", vasarol.t_id);
+
+                rvS = cmd.ExecuteNonQuery() == 1 ? true : false;
+            }
+
+            return rvS;
+        }
+
+        #endregion
+    }
 }

@@ -42,9 +42,9 @@ namespace BookShopDb.View.Dialogs
 				eladott_db = 0,
 			};
 			if (bookShopApp.db_cont.NewFilm(temp, Convert.ToInt32(lengthnumericUpDown1.Value)))
-				MessageBox.Show("SIKERÜLT");
+				MessageBox.Show("Sikerült a film hozzáadása");
 			else
-				MessageBox.Show("NEM SIKERÜLT");
+				MessageBox.Show("Nem sikerült a film hozzáadása");
 		}
 	
 	}

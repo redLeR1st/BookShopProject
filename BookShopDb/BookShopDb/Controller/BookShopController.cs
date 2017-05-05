@@ -48,6 +48,11 @@ namespace BookShopDb.Controller
 			return db_dao.NewBook(tetel, oldalszam);
 		}
 
+        public bool NewShop(Aruhaz aruhaz)
+        {
+            return db_dao.NewShop(aruhaz);
+        }
+
         public int GetCategoriaIdByName(string kat_nev)
 		{
 			return db_dao.GetCategoriaIdByName(kat_nev);
@@ -74,5 +79,9 @@ namespace BookShopDb.Controller
 		{
 			return db_dao.GetAdatlapById(tetel);
 		}
-	}
+        public bool Megveszem(Vasarol vasarol)
+        {
+            return db_dao.Megveszem(vasarol);
+        }
+    }
 }
