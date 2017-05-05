@@ -48,7 +48,7 @@ namespace BookShopDb.Controller
 			return db_dao.NewBook(tetel, oldalszam);
 		}
 
-		public int GetCategoriaIdByName(string kat_nev)
+        public int GetCategoriaIdByName(string kat_nev)
 		{
 			return db_dao.GetCategoriaIdByName(kat_nev);
 		}

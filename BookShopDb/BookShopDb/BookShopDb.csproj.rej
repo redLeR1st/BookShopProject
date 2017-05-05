@@ -1,0 +1,14 @@
+diff a/BookShopDb/BookShopDb/BookShopDb.csproj b/BookShopDb/BookShopDb/BookShopDb.csproj	(rejected hunks)
+@@ -79,6 +79,12 @@
+     <Compile Include="View\Dialogs\BuyTetel.Designer.cs">
+       <DependentUpon>BuyTetel.cs</DependentUpon>
+     </Compile>
++    <Compile Include="View\Dialogs\ListBooks.cs">
++      <SubType>Form</SubType>
++    </Compile>
++    <Compile Include="View\Dialogs\ListBooks.Designer.cs">
++      <DependentUpon>ListBooks.cs</DependentUpon>
++    </Compile>
+     <Compile Include="View\Dialogs\ListFilms.cs">
+       <SubType>Form</SubType>
+     </Compile>

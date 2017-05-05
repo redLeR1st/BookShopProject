@@ -115,6 +115,12 @@
     <Compile Include="View\Dialogs\NewShop.Designer.cs">
       <DependentUpon>NewShop.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Dialogs\SajatAdatlap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialogs\SajatAdatlap.Designer.cs">
+      <DependentUpon>SajatAdatlap.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dialogs\BuyTetel.resx">
       <DependentUpon>BuyTetel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialogs\ListBooks.resx">
+      <DependentUpon>ListBooks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dialogs\ListFilms.resx">
       <DependentUpon>ListFilms.cs</DependentUpon>
@@ -147,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dialogs\NewShop.resx">
       <DependentUpon>NewShop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialogs\SajatAdatlap.resx">
+      <DependentUpon>SajatAdatlap.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

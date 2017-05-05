@@ -1,0 +1,12 @@
+diff a/BookShopDb/BookShopDb/Dal/BookShopDaoImpl.cs b/BookShopDb/BookShopDb/Dal/BookShopDaoImpl.cs	(rejected hunks)
+@@ -27,8 +27,8 @@
+ 		*/
+ 		#region Propertyk
+ 		private static readonly string db_connection = "Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 4000)))" +
+-			"(CONNECT_DATA = (SERVER = DEDICATED)(SID = kabinet))); User Id = h644771;" +
+-			"Password = root;";
++			"(CONNECT_DATA = (SERVER = DEDICATED)(SID = kabinet))); User Id = h667769;" +
++			"Password = Ruszki96;";
+ 
+ 		public Felhasznalo OnlineFelhasznalo { get; set; } = null;
+ 

@@ -69,9 +69,18 @@ namespace BookShopDb.View
 
         private void signInLogoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (Login dialog = new Login(this))
+            if (db_cont.BookShopDao.OnlineFelhasznalo == null)
             {
-                dialog.ShowDialog(this);
+                using (Login dialog = new Login(this))
+                {
+                    dialog.ShowDialog(this);
+                }
+            }else
+            {
+                db_cont.BookShopDao.OnlineFelhasznalo = null;
+                //Így az üdvözöllek név ott marad, tovább használható, senki sincs bejelentkezve.
+                //de a this.Close()-al kilép
+                //this.Close();
             }
         }
 
@@ -147,5 +156,21 @@ namespace BookShopDb.View
 				
 
 		}
-	}
+
+        private void myProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Felhasznalo felh = new Felhasznalo();
+            using (SajatAdatlap dialog = new SajatAdatlap(this))
+            {
+                if (db_cont.BookShopDao.OnlineFelhasznalo != null)
+                {
+                    new SajatAdatlap(this, felh);
+                }
+                else
+                {
+                    MessageBox.Show("Adatlapod megtekintéséhez először be kell jelentkezned!");
+                }
+            }
+        }
+    }
 }

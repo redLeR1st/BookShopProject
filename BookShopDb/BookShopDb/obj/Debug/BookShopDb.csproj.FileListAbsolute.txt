@@ -72,3 +72,22 @@ C:\Users\h644771\Source\Repos\NewRepo2\BookShopDb\BookShopDb\obj\Debug\BookShopD
 C:\Users\h644771\Source\Repos\NewRepo2\BookShopDb\BookShopDb\obj\Debug\BookShopDb.exe
 C:\Users\h644771\Source\Repos\NewRepo2\BookShopDb\BookShopDb\obj\Debug\BookShopDb.pdb
 C:\Users\h644771\Source\Repos\NewRepo2\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.BuyTetel.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\bin\Debug\BookShopDb.exe.config
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.exe
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.pdb
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\bin\Debug\BookShopDb.exe
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\bin\Debug\BookShopDb.pdb
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.csprojResolveAssemblyReference.cache
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.Properties.Resources.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.BookShopApp.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.BuyTetel.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.ListFilms.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.Login.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.NewBook.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.NewFilm.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.NewMusic.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.NewShop.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.csproj.GenerateResource.Cache
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.ListBooks.resources
+C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.SajatAdatlap.resources
