@@ -13,18 +13,6 @@ namespace BookShopDb.Dal
 {
 	class BookShopDaoImpl : IBookShopDao
 	{
-		/*
-			using (OracleConnection conn = new OracleConnection(db_connection))
-			using (OracleCommand cmd = conn.CreateCommand())
-			{
-				conn.Open(); 
-
-
-
-
-			}
-
-		*/
 		#region Propertyk
 		private static readonly string db_connection = "Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 4000)))" +
 			"(CONNECT_DATA = (SERVER = DEDICATED)(SID = kabinet))); User Id = h667769;" +
