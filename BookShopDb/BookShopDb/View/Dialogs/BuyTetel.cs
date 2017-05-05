@@ -35,7 +35,7 @@ namespace BookShopDb.View.Dialogs
 				label3.Text = "Ár:";
 				label4.Text = "Értékelés:";
 				label5.Text = "Leírás";
-				label6.Text = "Kommnet:";
+				label6.Text = "Komment:";
 
 				label7.Text = konyv.cim;
 				label8.Text = konyv.szerzo;
@@ -44,7 +44,45 @@ namespace BookShopDb.View.Dialogs
 				label11.Text = bookShopApp.db_cont.GetAdatlapById(konyv).leiras;
 				label12.Text = bookShopApp.db_cont.GetAdatlapById(konyv).komment;
 			}
-			this.Visible = true;
+            else if (tetel is Film)
+            {
+                film = (Film)tetel;
+                MessageBox.Show("EZ AZ ID: " + film.t_id.ToString());
+
+                label1.Text = "Cím:";
+                label2.Text = "Szerző:";
+                label3.Text = "Ár:";
+                label4.Text = "Értékelés:";
+                label5.Text = "Leírás";
+                label6.Text = "Komment:";
+
+                label7.Text = film.cim;
+                label8.Text = film.szerzo;
+                label9.Text = film.ar.ToString();
+                label10.Text = bookShopApp.db_cont.GetAdatlapById(film).ertekels.ToString();
+                label11.Text = bookShopApp.db_cont.GetAdatlapById(film).leiras;
+                label12.Text = bookShopApp.db_cont.GetAdatlapById(film).komment;
+            }
+            else if (tetel is Zene)
+            {
+                zene = (Zene)tetel;
+                MessageBox.Show("EZ AZ ID: " + zene.t_id.ToString());
+
+                label1.Text = "Cím:";
+                label2.Text = "Szerző:";
+                label3.Text = "Ár:";
+                label4.Text = "Értékelés:";
+                label5.Text = "Leírás";
+                label6.Text = "Komment:";
+
+                label7.Text = zene.cim;
+                label8.Text = zene.szerzo;
+                label9.Text = zene.ar.ToString();
+                label10.Text = bookShopApp.db_cont.GetAdatlapById(zene).ertekels.ToString();
+                label11.Text = bookShopApp.db_cont.GetAdatlapById(zene).leiras;
+                label12.Text = bookShopApp.db_cont.GetAdatlapById(zene).komment;
+            }
+            this.Visible = true;
 		}
 		/*
 		public BuyTetel(BookShopApp bookShopApp, Film tetel)
