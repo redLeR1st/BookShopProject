@@ -115,22 +115,21 @@ namespace BookShopDb.View
 		private void UniversaldataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
 
-			/*Tetel temp = (Konyv)UniversaldataGridView1.CurrentRow.DataBoundItem;
-			MessageBox.Show(temp.t_id.ToString());
+			Tetel temp;
+			temp = (Tetel)UniversaldataGridView1.CurrentRow.DataBoundItem;
+			if (temp != null)
+				new BuyTetel(this, temp);
 
-			*/
+			/*
 			if (listazott_elemek.Equals("konyv"))
 			{
-				Konyv temp = null;
 				temp = (Konyv)UniversaldataGridView1.CurrentRow.DataBoundItem;
 				if (temp != null)
 					new BuyTetel(this, temp);
 
-
 			}
 			else if (listazott_elemek.Equals("film"))
 			{
-				Film temp = null;
 				temp = (Film)UniversaldataGridView1.CurrentRow.DataBoundItem;
 				if (temp != null)
 					new BuyTetel(this, temp);
@@ -138,15 +137,13 @@ namespace BookShopDb.View
 			}
 			else if (listazott_elemek.Equals("zene"))
 			{
-				Zene temp = null;
 				temp = (Zene)UniversaldataGridView1.CurrentRow.DataBoundItem;
 				if (temp != null)
 					new BuyTetel(this, temp);
 
-
 			}
 			else
-				MessageBox.Show("Valami nagyon nagy gebasz van");
+				MessageBox.Show("Valami nagyon nagy gebasz van");*/
 				
 
 		}

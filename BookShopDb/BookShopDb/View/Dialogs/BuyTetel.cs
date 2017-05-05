@@ -19,29 +19,33 @@ namespace BookShopDb.View.Dialogs
 		Zene zene;
 
 		private BookShopApp bookShopApp;
-		public BuyTetel(BookShopApp bookShopApp, Konyv tetel)
+		public BuyTetel(BookShopApp bookShopApp, Tetel tetel)
 		{
 			InitializeComponent();
 			this.bookShopApp = bookShopApp;
-			MessageBox.Show("EZ AZ ID: " + tetel.t_id.ToString());
 
-			label1.Text = "Cím:";
-			label2.Text = "Szerző:";
-			label3.Text = "Ár:";
-			label4.Text = "Értékelés:";
-			label5.Text = "Leírás";
-			label6.Text = "Kommnet:";
+			if (tetel is Konyv)
+			{
+				konyv = (Konyv)tetel;
+				MessageBox.Show("EZ AZ ID: " + konyv.t_id.ToString());
 
-			label7.Text = tetel.cim;
-			label8.Text = tetel.szerzo;
-			label9.Text = tetel.ar.ToString();
-			label10.Text = bookShopApp.db_cont.GetAdatlapById(tetel).ertekels.ToString();
-			label11.Text = bookShopApp.db_cont.GetAdatlapById(tetel).leiras;
-			label12.Text = bookShopApp.db_cont.GetAdatlapById(tetel).komment;
+				label1.Text = "Cím:";
+				label2.Text = "Szerző:";
+				label3.Text = "Ár:";
+				label4.Text = "Értékelés:";
+				label5.Text = "Leírás";
+				label6.Text = "Kommnet:";
 
+				label7.Text = konyv.cim;
+				label8.Text = konyv.szerzo;
+				label9.Text = konyv.ar.ToString();
+				label10.Text = bookShopApp.db_cont.GetAdatlapById(konyv).ertekels.ToString();
+				label11.Text = bookShopApp.db_cont.GetAdatlapById(konyv).leiras;
+				label12.Text = bookShopApp.db_cont.GetAdatlapById(konyv).komment;
+			}
 			this.Visible = true;
 		}
-
+		/*
 		public BuyTetel(BookShopApp bookShopApp, Film tetel)
 		{
 			InitializeComponent();
@@ -56,7 +60,7 @@ namespace BookShopDb.View.Dialogs
 			this.bookShopApp = bookShopApp;
 			MessageBox.Show("EZ AZ ID: " + tetel.t_id.ToString());
 
-		}
+		}*/
 
 		private void BuyTetel_Load(object sender, EventArgs e)
 		{
