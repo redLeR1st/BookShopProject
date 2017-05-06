@@ -15,6 +15,8 @@ namespace BookShopDb.Controller
 
 		public Felhasznalo GetOnlineFelhasznalo()
 		{
+			if (db_dao.OnlineFelhasznalo != null)
+				db_dao.onlineFelhasznaloRefresh();
 			return db_dao.OnlineFelhasznalo;
 		}
 
@@ -83,5 +85,31 @@ namespace BookShopDb.Controller
         {
             return db_dao.Megveszem(vasarol);
         }
-    }
+		public Lakik GetLakhelyFromUid(int u_id)
+		{
+			return db_dao.SelectLakhelyFromUid(u_id);
+		}
+
+		public Tetel GetTetelFromTid(int t_id)
+		{
+			return db_dao.SelectTetelFromTid(t_id);
+		}
+
+		public IEnumerable<MegvettKonyvek> GetMegvettKonyvek(int u_id)
+		{
+			return db_dao.GetMegvettKonyvek(u_id);
+		}
+	
+		public IEnumerable<MegvettFilmek> GetMegvettFilmek(int u_id)
+		{
+			return db_dao.GetMegvettFilmek(u_id);
+		}
+
+		public IEnumerable<MegvettZenek> GetMegvettZenek(int u_id)
+		{
+			return db_dao.GetMegvettZenek(u_id);
+		}
+
+
+	}
 }

@@ -23,6 +23,7 @@ namespace BookShopDb
             InitializeComponent();
 
             this.bookShopApp = bookShopApp;
+
         }
 
         private void loginbutton1_Click(object sender, EventArgs e)

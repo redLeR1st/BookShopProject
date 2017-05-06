@@ -61,6 +61,9 @@
     <Compile Include="Model\Konyv.cs" />
     <Compile Include="Model\Lakik.cs" />
     <Compile Include="Model\Login.cs" />
+    <Compile Include="Model\MegvettZenek.cs" />
+    <Compile Include="Model\MegvettFilmek.cs" />
+    <Compile Include="Model\MegvettKonyvek.cs" />
     <Compile Include="Model\Talalhato.cs" />
     <Compile Include="Model\Tetel.cs" />
     <Compile Include="Model\Vasarol.cs" />
@@ -79,11 +82,11 @@
     <Compile Include="View\Dialogs\BuyTetel.Designer.cs">
       <DependentUpon>BuyTetel.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Dialogs\ListFilms.cs">
+    <Compile Include="View\Dialogs\EddigVasaroltam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Dialogs\ListFilms.Designer.cs">
-      <DependentUpon>ListFilms.cs</DependentUpon>
+    <Compile Include="View\Dialogs\EddigVasaroltam.Designer.cs">
+      <DependentUpon>EddigVasaroltam.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Dialogs\Login.cs">
       <SubType>Form</SubType>
@@ -139,8 +142,8 @@
     <EmbeddedResource Include="View\Dialogs\ListBooks.resx">
       <DependentUpon>ListBooks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialogs\ListFilms.resx">
-      <DependentUpon>ListFilms.cs</DependentUpon>
+    <EmbeddedResource Include="View\Dialogs\EddigVasaroltam.resx">
+      <DependentUpon>EddigVasaroltam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dialogs\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

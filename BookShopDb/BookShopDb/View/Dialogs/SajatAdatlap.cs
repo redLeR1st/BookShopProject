@@ -20,13 +20,20 @@ namespace BookShopDb.View.Dialogs
             InitializeComponent();
             this.bookShopApp = bookShopApp;
 
-                label5.Text = bookShopApp.db_cont.GetOnlineFelhasznalo().k_nev;
-                label6.Text = bookShopApp.db_cont.GetOnlineFelhasznalo().v_nev;
-                label7.Text = bookShopApp.db_cont.GetOnlineFelhasznalo().email;
-                label8.Text = bookShopApp.db_cont.GetOnlineFelhasznalo().tel_szam.ToString();
-                label11.Text = bookShopApp.db_cont.GetOnlineFelhasznalo().vasarolt_db.ToString();
+                label5.Text = felhasznalo.k_nev;
+                label6.Text = felhasznalo.v_nev;
+                label7.Text = felhasznalo.email;
+                label8.Text = felhasznalo.tel_szam.ToString();
+                label11.Text = felhasznalo.vasarolt_db.ToString();
+				Egyenleglabel15.Text = felhasznalo.egyenleg.ToString();
 
-                if (bookShopApp.db_cont.GetOnlineFelhasznalo().admine)
+				Utcalabel17.Text = bookShopApp.db_cont.GetLakhelyFromUid(felhasznalo.u_id).utca;
+				Hszámlabel18.Text = bookShopApp.db_cont.GetLakhelyFromUid(felhasznalo.u_id).hazszam.ToString();
+
+
+
+
+			if (felhasznalo.admine)
                 {
                     label10.Text = "Admin";
                 }
@@ -35,7 +42,7 @@ namespace BookShopDb.View.Dialogs
                     label10.Text = "Felhasználó";
                 }
 
-                if (bookShopApp.db_cont.GetOnlineFelhasznalo().torzsvasarlo)
+                if (felhasznalo.torzsvasarlo)
                 {
                     label12.Text = "Törzsvásárló";
                 }
@@ -51,5 +58,20 @@ namespace BookShopDb.View.Dialogs
         {
             this.bookShopApp = bookShopApp;
         }
-    }
+
+		private void label14_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label15_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			new EddigVasaroltam(bookShopApp);
+		}
+	}
 }

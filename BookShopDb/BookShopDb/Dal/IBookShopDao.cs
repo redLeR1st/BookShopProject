@@ -25,7 +25,12 @@ namespace BookShopDb.Dal
 		bool NewZene(Tetel tetel, int hossz);
 		Adatlap GetAdatlapById(Tetel tetel);
         bool NewShop(Aruhaz aruhaz);
-
         bool Megveszem(Vasarol vasarol);
-    }
+		void onlineFelhasznaloRefresh();
+		Lakik SelectLakhelyFromUid(int u_id);
+		Tetel SelectTetelFromTid(int t_id);
+		IEnumerable<MegvettKonyvek> GetMegvettKonyvek(int u_id);
+		IEnumerable<MegvettFilmek> GetMegvettFilmek(int u_id);
+		IEnumerable<MegvettZenek> GetMegvettZenek(int u_id);
+	}
 }

@@ -91,3 +91,21 @@ C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug
 C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.csproj.GenerateResource.Cache
 C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.ListBooks.resources
 C:\Users\Orosz Mónika\Documents\BookShopProject\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.SajatAdatlap.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\bin\Debug\BookShopDb.exe.config
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\bin\Debug\BookShopDb.exe
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\bin\Debug\BookShopDb.pdb
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.csprojResolveAssemblyReference.cache
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.Properties.Resources.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.BookShopApp.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.BuyTetel.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.ListBooks.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.Login.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.NewBook.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.NewFilm.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.NewMusic.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.NewShop.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.SajatAdatlap.resources
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.csproj.GenerateResource.Cache
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.exe
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.pdb
+C:\Users\h644771\Source\Repos\NewRepo3\BookShopDb\BookShopDb\obj\Debug\BookShopDb.View.Dialogs.EddigVasaroltam.resources
