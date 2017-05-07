@@ -84,6 +84,7 @@ namespace BookShopDb.View
 
 		private void toplistToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+            pictureBox1.Hide();
 			listazott_elemek = "konyv";
 			UniversaldataGridView1.DataSource = null;
 			UniversaldataGridView1.DataSource = db_cont.GetKonyvekFromCheapest();
@@ -92,7 +93,8 @@ namespace BookShopDb.View
 
 		private void popularToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			listazott_elemek = "konyv";
+            pictureBox1.Hide();
+            listazott_elemek = "konyv";
 			UniversaldataGridView1.DataSource = null;
 			UniversaldataGridView1.DataSource = db_cont.GetKonyvekFromMostPopular();
 			UniversaldataGridView1.Visible = true;
@@ -100,7 +102,8 @@ namespace BookShopDb.View
 
         private void listFilmsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-			listazott_elemek = "film";
+            pictureBox1.Hide();
+            listazott_elemek = "film";
 			UniversaldataGridView1.DataSource = null;
 			UniversaldataGridView1.DataSource = db_cont.GetFilmek();
 			UniversaldataGridView1.Visible = true;
@@ -108,7 +111,8 @@ namespace BookShopDb.View
 
 		private void listMusicsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			listazott_elemek = "zene";
+            pictureBox1.Hide();
+            listazott_elemek = "zene";
 			UniversaldataGridView1.DataSource = null;
 			UniversaldataGridView1.DataSource = db_cont.GetZenek();
 			UniversaldataGridView1.Visible = true;
@@ -121,8 +125,8 @@ namespace BookShopDb.View
 
 		private void UniversaldataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-
-			Tetel temp;
+            pictureBox1.Hide();
+            Tetel temp;
 			temp = (Tetel)UniversaldataGridView1.CurrentRow.DataBoundItem;
 			if (temp != null)
 				new BuyTetel(this, temp);

@@ -17,6 +17,11 @@ namespace BookShopDb.View.Dialogs
     partial class SajatAdatlap : Form
     {
         private BookShopApp bookShopApp;
+
+        string db_connection = "Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 4000)))" +
+        "(CONNECT_DATA = (SERVER = DEDICATED)(SID = kabinet))); User Id = h667769;" +
+        "Password = root";
+
         public SajatAdatlap(BookShopApp bookShopApp, Felhasznalo felhasznalo)
         {
             InitializeComponent();
@@ -53,6 +58,35 @@ namespace BookShopDb.View.Dialogs
                     label12.Text = "Nem törzsvásárló";
                 }
 
+            int u_id = bookShopApp.db_cont.GetOnlineFelhasznalo().u_id;
+
+            using (OracleConnection conn = new OracleConnection(db_connection))
+            using (OracleCommand cmd = conn.CreateCommand())
+            {
+                conn.Open();
+
+                cmd.CommandText = "SELECT * FROM felhasznalo WHERE u_id =" + u_id;
+
+                OracleDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if(reader["kep"] != System.DBNull.Value)
+                    {
+                        byte[] img = (byte[])(reader["kep"]);
+                        if (img == null)
+                        {
+                            pictureBox1.Image = null;
+                        }
+                        else
+                        {
+                            MemoryStream ms = new MemoryStream(img);
+                            pictureBox1.Image = System.Drawing.Image.FromStream(ms);
+                        }
+                    }
+                    
+                }
+            }
             this.Visible = true;
         }
 
@@ -91,10 +125,6 @@ namespace BookShopDb.View.Dialogs
 
         private void mentes_Click(object sender, EventArgs e)
         {
-            string db_connection = "Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 4000)))" +
-            "(CONNECT_DATA = (SERVER = DEDICATED)(SID = kabinet))); User Id = h667769;" +
-            "Password = root";
-
             int u_id = bookShopApp.db_cont.GetOnlineFelhasznalo().u_id;
 
             using (OracleConnection conn = new OracleConnection(db_connection))

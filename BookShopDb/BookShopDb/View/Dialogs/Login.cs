@@ -2,6 +2,7 @@
 using BookShopDb.Model;
 using BookShopDb.View;
 using BookShopDb.View.Dialogs;
+using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,7 +48,7 @@ namespace BookShopDb
 			{
 				MessageBox.Show("Helytelen jelszó-pw páros!");
 			}
-		}
+        }
 
 		private void signUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{

@@ -270,6 +270,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BookShopDb.Properties.Resources.default_user_image;
+            this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(352, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 220);
