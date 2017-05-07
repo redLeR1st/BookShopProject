@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMusic));
             this.cancelMusicButton = new System.Windows.Forms.Button();
             this.addMusicButton = new System.Windows.Forms.Button();
             this.priceMusicTextBox = new System.Windows.Forms.TextBox();
@@ -202,6 +203,7 @@
             this.Controls.Add(this.authorMusicLabel);
             this.Controls.Add(this.genreMusicLabel);
             this.Controls.Add(this.titleMusicLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewMusic";
             this.Text = "Új zene";
             ((System.ComponentModel.ISupportInitialize)(this.lengthnumericUpDown1)).EndInit();

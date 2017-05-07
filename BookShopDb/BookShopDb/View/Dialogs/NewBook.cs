@@ -46,5 +46,10 @@ namespace BookShopDb.View
 		{
 
 		}
-	}
+
+        private void titleBookTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

@@ -15,7 +15,7 @@ namespace BookShopDb.Dal
 	{
 		#region Propertyk
 		private static readonly string db_connection = "Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 4000)))" +
-			"(CONNECT_DATA = (SERVER = DEDICATED)(SID = kabinet))); User Id = h644771;" +
+			"(CONNECT_DATA = (SERVER = DEDICATED)(SID = kabinet))); User Id = h667769;" +
 			"Password = root";
 
 		public Felhasznalo OnlineFelhasznalo { get; set; } = null;
@@ -806,7 +806,18 @@ namespace BookShopDb.Dal
 			return zenek;
 		}
 
-		#endregion
+        #endregion
 
-	}
+        #region Regisztracio
+        /*public bool Regisztracio()
+        {
+            //regisztracio
+        }
+        */
+        public bool Regisztracio(Felhasznalo felhasznalo)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+    }
 }

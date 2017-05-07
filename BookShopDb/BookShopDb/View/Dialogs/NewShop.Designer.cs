@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewShop));
             this.shopNameLabel = new System.Windows.Forms.Label();
             this.addressShopLabel = new System.Windows.Forms.Label();
             this.cancelShopButton = new System.Windows.Forms.Button();
@@ -99,8 +100,9 @@
             this.Controls.Add(this.addShopButton);
             this.Controls.Add(this.addressShopLabel);
             this.Controls.Add(this.shopNameLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewShop";
-            this.Text = "New Shop";
+            this.Text = "Új áruház";
             this.ResumeLayout(false);
             this.PerformLayout();
 

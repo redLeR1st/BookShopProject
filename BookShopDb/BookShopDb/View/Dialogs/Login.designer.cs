@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.usertextBox1 = new System.Windows.Forms.TextBox();
             this.pwtextBox2 = new System.Windows.Forms.TextBox();
             this.Userlabel1 = new System.Windows.Forms.Label();
@@ -83,6 +84,7 @@
             // signUpLinkLabel
             // 
             this.signUpLinkLabel.AutoSize = true;
+            this.signUpLinkLabel.LinkColor = System.Drawing.Color.LimeGreen;
             this.signUpLinkLabel.Location = new System.Drawing.Point(260, 129);
             this.signUpLinkLabel.Name = "signUpLinkLabel";
             this.signUpLinkLabel.Size = new System.Drawing.Size(65, 13);
@@ -113,6 +115,7 @@
             this.Controls.Add(this.Userlabel1);
             this.Controls.Add(this.pwtextBox2);
             this.Controls.Add(this.usertextBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Bejelentkezés";
             this.ResumeLayout(false);

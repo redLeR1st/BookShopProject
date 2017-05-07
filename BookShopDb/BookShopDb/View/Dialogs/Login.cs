@@ -1,6 +1,7 @@
 ﻿using BookShopDb.Controller;
 using BookShopDb.Model;
 using BookShopDb.View;
+using BookShopDb.View.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,7 +51,10 @@ namespace BookShopDb
 
 		private void signUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-
+            using (Regisztracio dialog = new Regisztracio())
+            {
+                dialog.ShowDialog();
+            }
 		}
 	}
 }

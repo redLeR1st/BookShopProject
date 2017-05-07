@@ -110,6 +110,5 @@ namespace BookShopDb.Controller
 			return db_dao.GetMegvettZenek(u_id);
 		}
 
-
-	}
+    }
 }

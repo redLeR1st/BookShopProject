@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuyTetel));
             this.Buybutton1 = new System.Windows.Forms.Button();
             this.Cancelbutton2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -192,6 +193,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Cancelbutton2);
             this.Controls.Add(this.Buybutton1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BuyTetel";
             this.Text = "Tétel vásárlás";
             this.Load += new System.EventHandler(this.BuyTetel_Load);

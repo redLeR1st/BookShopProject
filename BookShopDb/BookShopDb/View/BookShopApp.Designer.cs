@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookShopApp));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signInLogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,8 +48,10 @@
             this.musicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newShopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UniversaldataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UniversaldataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -205,19 +208,36 @@
             this.UniversaldataGridView1.TabIndex = 1;
             this.UniversaldataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UniversaldataGridView1_CellDoubleClick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox1.Image = global::BookShopDb.Properties.Resources.vector_bookshop_logo_design;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(784, 537);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // BookShopApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UniversaldataGridView1);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "BookShopApp";
             this.Text = "BookShop Alkalmazás";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UniversaldataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +264,6 @@
         private System.Windows.Forms.ToolStripMenuItem musicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newShopToolStripMenuItem;
 		private System.Windows.Forms.DataGridView UniversaldataGridView1;
-	}
+        private System.Windows.Forms.PictureBox pictureBox1;
+    }
 }

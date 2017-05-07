@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewFilm));
             this.cancelFilmButton = new System.Windows.Forms.Button();
             this.addFilmButton = new System.Windows.Forms.Button();
             this.priceFilmTextBox = new System.Windows.Forms.TextBox();
@@ -202,6 +203,7 @@
             this.Controls.Add(this.authorFilmLabel);
             this.Controls.Add(this.genreFilmLabel);
             this.Controls.Add(this.titleFilmLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewFilm";
             this.Text = "Új film";
             ((System.ComponentModel.ISupportInitialize)(this.lengthnumericUpDown1)).EndInit();

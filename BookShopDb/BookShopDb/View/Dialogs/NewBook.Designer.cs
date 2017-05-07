@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewBook));
             this.cancelBookButton = new System.Windows.Forms.Button();
             this.addBookButton = new System.Windows.Forms.Button();
             this.priceBookTextBox = new System.Windows.Forms.TextBox();
@@ -94,6 +95,7 @@
             this.titleBookTextBox.Name = "titleBookTextBox";
             this.titleBookTextBox.Size = new System.Drawing.Size(128, 20);
             this.titleBookTextBox.TabIndex = 26;
+            this.titleBookTextBox.TextChanged += new System.EventHandler(this.titleBookTextBox_TextChanged);
             // 
             // pageNumberBookLabel
             // 
@@ -202,6 +204,7 @@
             this.Controls.Add(this.authorBookLabel);
             this.Controls.Add(this.genreBookLabel);
             this.Controls.Add(this.titleBookLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewBook";
             this.Text = "Új könyv";
             this.Load += new System.EventHandler(this.NewBook_Load);
